@@ -1,0 +1,22 @@
+# Frontend & Backend
+node_modules/
+dist/
+dist-ssr/
+.env.local
+.env.*.local
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS
+.DS_Store
+Thumbs.db
+
