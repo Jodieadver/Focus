@@ -1,12 +1,14 @@
 import { useEffect, useMemo, useState } from 'react'
 
+const API = import.meta.env.VITE_API_BASE_URL || ''
+
 export default function HistoryPage() {
     const [entries, setEntries] = useState([])
 
     useEffect(() => {
         const loadEntries = async () => {
             try {
-                const res = await fetch('/api')
+                const res = await fetch(`${API}/api`)
                 const data = await res.json()
                 if (Array.isArray(data)) {
                     setEntries(data)

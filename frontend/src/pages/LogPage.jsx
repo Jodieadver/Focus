@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 
+const API = import.meta.env.VITE_API_BASE_URL || ''
+
 const FALLBACK_FOCUS_THEMES = [
     'Deep Work Integration',
     'Breathing good',
@@ -19,7 +21,7 @@ export default function LogPage() {
     useEffect(() => {
         const loadFocusThemeOptions = async () => {
             try {
-                const res = await fetch('/api/focus-themes')
+                const res = await fetch(`${API}/api/focus-themes`)
                 if (!res.ok) {
                     setFocusThemeOptions(FALLBACK_FOCUS_THEMES)
                     return
@@ -52,7 +54,7 @@ export default function LogPage() {
         try {
             setFormMessage('')
             setIsSubmitting(true)
-            const res = await fetch('/api/log', {
+            const res = await fetch(`${API}/api/log`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
